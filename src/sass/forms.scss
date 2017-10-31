@@ -1,0 +1,56 @@
+form p {
+	margin-bottom: 1em;
+}
+
+.formRow {
+	float: left;
+	width: 100%;
+	clear: both;
+	margin-bottom: 0.5em;
+
+	label {
+		float: left;
+		width: 250px;
+		line-height: 22px;
+		padding-right: 10px;
+	}
+
+	input,
+	select,
+	textarea {
+		float: left;
+		font-family: 'Segoe UI', Tahoma, sans-serif;
+	}
+
+	input {
+		&[type=text] {
+			width: 400px;
+			text-indent: 3px;
+		}
+	}
+
+	select {
+		width: 404px;
+		height: 23px;
+		border-radius: 0;
+		margin-bottom: 6px;
+	}
+
+	textarea {
+		width: 398px;
+		height: 250px;
+	}
+}
+
+#newcompany {
+	margin-left: 260px;
+	display: none;
+
+	&.active {
+		display: block;
+	}
+}
+
+#submitreport #submitbtn {
+	margin-left: 260px;
+}

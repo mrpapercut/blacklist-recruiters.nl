@@ -1,0 +1,9 @@
+@import 'reset';
+@import 'generic';
+@import 'header';
+@import 'forms';
+@import 'content';
+
+@media only screen and (min-width: 1025px) {
+	@import 'desktop';
+}

@@ -1,0 +1,112 @@
+.mainpagereport,
+.detailreport,
+.overviewcompanies,
+.detailcompany,
+.faq,
+.aboutus {
+	margin-bottom: 2em;
+	padding: 1em 1.5em;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0 1px 2px rgba(128,128,128, 0.25);
+	background: #fcfcfc;
+	float: left;
+	width: calc(100% - 3em);
+
+    h3 {
+        font-size: 1.3em;
+        margin-bottom: 0.5em;
+    }
+
+    h4 {
+        margin-bottom: 0.25em;
+    }
+
+    li {
+        &.older-6months {
+            opacity: 0.75;
+        }
+
+        &.older-1year {
+            opacity: 0.5;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .reportauthor,
+    .author {
+        font-weight: normal;
+        color: #555;
+        padding-bottom: 0.25em;
+        display: block;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 1em;
+    }
+
+    .mainpagereport img {
+        display: none;
+    }
+
+    .reportcontent {
+        margin-bottom: 1.5em;
+        position: relative;
+        padding: 20px;
+
+        img {
+            max-width: 80%;
+            margin: 0 auto;
+            border: 1em solid #fff;
+            box-shadow: 2px 2px 2px #ccc, 0 0 1px #aaa;
+        }
+
+        &:before,
+        &:after {
+            font-size: 3em;
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        &:before {
+            top: 0;
+            left: 0;
+            content: '\201C';
+        }
+
+        &:after {
+            bottom: 0;
+            right: 0;
+            content: '\201D';
+        }
+    }
+
+    .faqitem {
+        margin-bottom: 1.5em;
+
+        .question {
+            cursor: pointer;
+        }
+    }
+}
+
+a.readmore,
+a.commentcount {
+	display: block;
+	margin-top: 1em;
+	float: left;
+}
+
+a.commentcount {
+	float: right;
+}
+
+.page-warning {
+	width: 560px;
+	margin: -10px auto 10px;
+	padding: 5px 0;
+	text-align: center;
+	border: 2px solid orange;
+	border-top: none;
+	background: rgba(255,165,0, 0.15);
+}

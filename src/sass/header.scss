@@ -1,0 +1,157 @@
+#header {
+	width: 100%;
+    min-width: 740px;
+    position: fixed;
+	margin: 0;
+	background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(15,36,46,1) 100%);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba(15,36,46,1) 100%);
+	background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(15,36,46,1) 100%);
+    transition: all 0.15s;
+    top: 0;
+    z-index: 10;
+
+    &:before {
+        height: 100px;
+        width: 100%;
+        background: linear-gradient(to bottom, #000 0%, #0f242e 100%);
+        position: fixed;
+        content: '';
+        left: 0;
+        top: 0;
+        transition: all 0.15s;
+    }
+
+    &.small {
+        height: 60px;
+
+        &:before {
+            height: 60px;
+        }
+
+        #title a {
+            margin: 16px 0;
+        }
+
+        .navbtns .navbtn {
+            padding: 20px 15px;
+        }
+
+        .icons {
+            margin-top: 15px;
+
+            #search.opened {
+                height: 45px;
+            }
+        }
+
+    }
+
+	#title {
+		float: left;
+        margin: 0 2em;
+		position: relative;
+		text-align: center;
+
+        a {
+            margin: 41px 0 0;
+            display: block;
+            font-size: 2.4em;
+            font-weight: normal;
+            color: #fff;
+            text-decoration: none;
+            transition: margin 0.15s;
+        }
+    }
+
+    .navbtns {
+        float: right;
+
+		.navbtn {
+			padding: 45px 15px 35px;
+			float: left;
+			color: #fff;
+			font-size: 2em;
+			text-align: center;
+			text-decoration: none;
+			cursor: pointer;
+			position: relative;
+            transition: all 0.15s;
+
+			&#makereport {
+				color: orange;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+
+			&:hover {
+				background: orange;
+
+				.submenu {
+					display: block;
+				}
+			}
+
+		}
+    }
+
+    .icons {
+        float: right;
+        position: relative;
+        margin-top: 38px;
+        transition: all 0.15s;
+
+        #opensearch {
+            margin: 2px 1em 0 10px;
+            padding: 0;
+            border: 0;
+            cursor: pointer;
+            background: none;
+            outline: none;
+            float: right;
+
+            svg {
+                fill: #fff;
+                cursor: pointer;
+            }
+        }
+
+        #search {
+            transition: all .25s;
+            opacity: 0;
+
+            input {
+                border: none;
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                background: #fff;
+                margin: 0;
+                padding: 0;
+                text-indent: 1em;
+                font-size: 2em;
+                outline: none;
+                opacity: 1;
+                display: none;
+            }
+
+            &.opened {
+                border: 1px solid #fff;
+                border-radius: 5px;
+                background: #fff;
+                width: 300px;
+                height: 50px;
+                position: absolute;
+                right: 0;
+                top: -7px;
+                z-index: 1;
+                opacity: 1;
+
+                input {
+                    display: block;
+                }
+            }
+        }
+    }
+}
