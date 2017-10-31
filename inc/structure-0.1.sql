@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS `companies` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(256) NOT NULL,
-  `info` text NOT NULL,
+  `companyname` varchar(256) NOT NULL,
+  `allowed` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
