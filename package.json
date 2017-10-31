@@ -1,0 +1,38 @@
+{
+  "name": "blacklist-recruiters.nl",
+  "version": "0.1.0",
+  "description": "Blacklist-recruiters.nl",
+  "author": {
+    "name": "Mischa Rodermond",
+    "email": "info@blacklist-recruiters.nl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrpapercut/blacklist-recruiters.nl.git"
+  },
+  "homepage": "https://blacklist-recruiters.nl",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "superagent": "^3.5.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.26.2",
+    "extract-text-webpack-plugin": "^2.0.0",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.2",
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "watch": "NODE_ENV=dev webpack --progress --colors --watch",
+    "watch-win": "SET NODE_ENV=dev & webpack --progress --colors --watch"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
