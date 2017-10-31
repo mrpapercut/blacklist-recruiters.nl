@@ -2,19 +2,19 @@
 
 class Util {
 
-	public function truncateText($text) {
-		if (strlen($text) > 350) {
-			$text = substr($text, 0, 350);
-			preg_match('/(.*)\s/', $text, $text);
-			return $text[1].'...';
-		} else {
-			return $text;
-		}
-	}
+    public function truncateText($text) {
+        if (strlen($text) > 350) {
+            $text = substr($text, 0, 350);
+            preg_match('/(.*)\s/', $text, $text);
+            return $text[1].'...';
+        } else {
+            return $text;
+        }
+    }
 
-	public function getMailToken($insertid) {
-		return hash('sha256', time().$insertid);
-	}
+    public function getMailToken($insertid) {
+        return hash('sha256', time().$insertid);
+    }
 
     public function encrypt($string) {
         $encrypt_method = "AES-256-CBC";

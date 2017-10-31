@@ -22,11 +22,11 @@ class Db {
     /* Reports */
     public function getAllReports() {
         $stmt = $this->conn->prepare("SELECT r.id, r.timestamp, r.company_id, r.name, r.report, c.companyname
-			FROM reports AS r
-			INNER JOIN companies AS c
-			ON r.company_id = c.id
-			WHERE r.allowed = 1
-			ORDER BY timestamp DESC");
+            FROM reports AS r
+            INNER JOIN companies AS c
+            ON r.company_id = c.id
+            WHERE r.allowed = 1
+            ORDER BY timestamp DESC");
 
         try {
             if (!$stmt->execute()) {
@@ -109,11 +109,11 @@ class Db {
         if (is_null($excludeId)) $excludeId = 0;
 
         $stmt = $this->conn->prepare("SELECT r.id, r.timestamp
-			FROM reports AS r
-			INNER JOIN companies AS c
-			ON r.company_id = c.id
-			WHERE c.companyname = ?
-			AND r.allowed = 1
+            FROM reports AS r
+            INNER JOIN companies AS c
+            ON r.company_id = c.id
+            WHERE c.companyname = ?
+            AND r.allowed = 1
             AND r.id != ?
             ORDER BY r.timestamp DESC");
 
@@ -146,12 +146,12 @@ class Db {
 
     public function countReportsByCompanyId($companyId) {
         $stmt = $this->conn->prepare("SELECT COUNT(r.id) AS count
-			FROM companies as c
-			INNER JOIN reports AS r
-			ON c.id = r.company_id
-			WHERE r.allowed = 1
-			AND c.allowed = 1
-			AND c.id = ?");
+            FROM companies as c
+            INNER JOIN reports AS r
+            ON c.id = r.company_id
+            WHERE r.allowed = 1
+            AND c.allowed = 1
+            AND c.id = ?");
 
         $stmt->bind_param('i', $companyId);
 
@@ -291,7 +291,7 @@ class Db {
     }
 
     public function getCompanies() {
-		$stmt = $this->conn->prepare("SELECT DISTINCT c.id, c.companyname, c.allowed FROM companies AS c
+        $stmt = $this->conn->prepare("SELECT DISTINCT c.id, c.companyname, c.allowed FROM companies AS c
             INNER JOIN reports AS r
             ON c.id = r.company_id
             WHERE c.allowed = 1
