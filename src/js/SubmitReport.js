@@ -3,8 +3,6 @@ import request from 'superagent';
 class SubmitReport {
 
     constructor() {
-        this.hash = null;
-
         this.mapElements();
 
         const {form, jsWarning, submitbtn} = this.elements;
@@ -17,7 +15,6 @@ class SubmitReport {
         jsWarning.classList.add('hide');
         submitbtn.removeAttribute('disabled');
 
-        this.setHash();
         this.resetErrors();
         this.attachNewCompanyField();
     }
@@ -33,22 +30,6 @@ class SubmitReport {
         });
 
         this.elements = elements;
-    }
-
-    setHash() {
-        const {appCodeName, appName, appVersion, platform, product, productSub, userAgent, vendor, vendorSub} = navigator;
-
-        this.hash = btoa(JSON.stringify({
-            appCodeName,
-            appName,
-            appVersion,
-            platform,
-            product,
-            productSub,
-            userAgent,
-            vendor,
-            vendorSub
-        }));
     }
 
     resetErrors() {
@@ -99,8 +80,7 @@ class SubmitReport {
             company: company.value === 'other' ? newcompany.value : company.value,
             addcompany: company.value === 'other',
             name: name.value || 'anoniem',
-            report: report.value.replace(/\n/g, '<br>'),
-            hash: this.hash
+            report: report.value.replace(/\n/g, '<br>')
         };
 
         request
