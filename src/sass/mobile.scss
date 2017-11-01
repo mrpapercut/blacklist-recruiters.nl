@@ -1,0 +1,40 @@
+#header,
+#header.small {
+    font-family: inherit;
+    min-width: 0;
+    height: 85px;
+
+    &:before {
+        height: 85px;
+    }
+
+    #title {
+        font-family: inherit;
+        float: none;
+        margin: 0 auto;
+
+        a {
+            font-family: inherit;
+            margin: 10px 0 0;
+        }
+    }
+
+    &:before #title a {
+        margin: 10px 0 0;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    .navbtns {
+        margin-top: 15px;
+        float: none;
+        text-align: center;
+
+        .navbtn {
+            padding: 15px;
+            float: none;
+        }
+    }
+}
