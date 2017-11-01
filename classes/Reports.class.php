@@ -63,9 +63,9 @@ class Reports {
 
         // To force admin to see all reports
         // TODO: Make this better
-        $forceAllowed = ($_SERVER['REMOTE_ADDR'] === ADMIN_IP || $_SERVER['REMOTE_ADDR'] === '::1');
+        $forceAllowed = ($_SERVER['REMOTE_ADDR'] === ADMIN_IP);
 
-        $hash = isset($_SESSION) && isset($_SESSION['hash']) ? $_SESSION['hash'] : 'dfssfd';
+        $hash = isset($_COOKIE) && isset($_COOKIE['hash']) ? $_COOKIE['hash'] : 'dfssfd';
 
         return $this->db->getReportById($id, $hash, $forceAllowed);
     }
@@ -86,14 +86,10 @@ class Reports {
         if (!$this->db) $this->db = new Db();
         if (!$this->util) $this->util = new Util();
 
-
         $companyid = null;
         $conn = $this->db->conn;
 
         $hash = $this->util->encrypt($_SERVER['REMOTE_ADDR']);
-        // Store hash in Session
-        if (!isset($_SESSION)) session_start();
-        $_SESSION['hash'] = $hash;
 
         // If company doesn't exist, $data->company contains a company-name to add to the DB
         if ($data->addcompany) {
@@ -115,7 +111,7 @@ class Reports {
             $mailtoken = $this->mail->mailAdmin($name, $report, ucwords($company[0]['companyname']), $insertid);
 
             if ($this->db->setMailToken($insertid, $mailtoken)) {
-                return $insertid.'';
+                return $insertid.':'.$hash;
             }
         } else {
             return false;

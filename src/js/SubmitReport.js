@@ -93,9 +93,11 @@ class SubmitReport {
         })
         .then(res => res.text())
         .then(res => {
-            if (!isNaN(res) && res > 0) {
+            const [insertid, hash] = res.split(':');
+            if (!isNaN(insertid) && insertid > 0) {
                 // success!
-                document.location.href = 'meldingen/' + res;
+                document.cookie = 'hash=' + hash + ';max-age=3600;secure';
+                document.location.href = 'meldingen/' + insertid;
             } else {
                 window.alert('Er is iets fout gegaan bij het plaatsen. Probeer het later opnieuw');
                 submitbtn.removeAttribute('disabled');
