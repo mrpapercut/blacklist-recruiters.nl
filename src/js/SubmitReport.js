@@ -1,4 +1,4 @@
-import request from 'superagent';
+// import request from 'superagent';
 
 class SubmitReport {
 
@@ -83,25 +83,24 @@ class SubmitReport {
             report: report.value.replace(/\n/g, '<br>')
         };
 
-        request
-            .post(document.location.href)
-            .type('form')
-            .send({
+        fetch(document.location.href, {
+            method: 'post',
+            body: JSON.stringify({
                 ajax: true,
                 request: 'postReport',
-                data: JSON.stringify(formData)
+                data: formData
             })
-            .end((err, res) => {
-                res = parseInt(res.text, 10);
-
-                if (!isNaN(res) && res > 0) {
-                    // success!
-                    document.location.href = 'meldingen/' + res;
-                } else {
-                    window.alert('Er is iets fout gegaan bij het plaatsen. Probeer het later opnieuw');
-                    submitbtn.removeAttribute('disabled');
-                }
-            });
+        })
+        .then(res => res.text())
+        .then(res => {
+            if (!isNaN(res) && res > 0) {
+                // success!
+                document.location.href = 'meldingen/' + res;
+            } else {
+                window.alert('Er is iets fout gegaan bij het plaatsen. Probeer het later opnieuw');
+                submitbtn.removeAttribute('disabled');
+            }
+        });
     }
 }
 

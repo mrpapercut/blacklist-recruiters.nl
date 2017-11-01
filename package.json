@@ -12,9 +12,6 @@
   },
   "homepage": "https://blacklist-recruiters.nl",
   "license": "GPL-3.0",
-  "dependencies": {
-    "superagent": "^3.5.0"
-  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

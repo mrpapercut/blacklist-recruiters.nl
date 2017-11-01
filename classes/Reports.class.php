@@ -86,9 +86,9 @@ class Reports {
         if (!$this->db) $this->db = new Db();
         if (!$this->util) $this->util = new Util();
 
+
         $companyid = null;
         $conn = $this->db->conn;
-        $data = json_decode($data);
 
         $hash = $this->util->encrypt($_SERVER['REMOTE_ADDR']);
         // Store hash in Session

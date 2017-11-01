@@ -14,9 +14,11 @@ class Site {
 
         spl_autoload_register('Site::autoloader');
 
-        if (isset($_POST['ajax']) && $_POST['ajax'] == true && isset($_POST['request'])) {
+        $postdata = json_decode(file_get_contents('php://input'));
+
+        if (!is_null($postdata) && isset($postdata->ajax) && $postdata->ajax === true && isset($postdata->request)) {
             $this->ajax = new Ajax();
-            die($this->ajax->getRequest($_POST['request'], $_POST['data']));
+            die($this->ajax->getRequest($postdata->request, $postdata->data));
         }
     }
 
