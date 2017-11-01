@@ -1,3 +1,4 @@
+<div id="mededeling"><a href="einde-blacklist.html">Belangrijke mededeling over de toekomst van Blacklist-Recruiters.nl</a></div>
 <h2>Lijst van meldingen</h2>
 <?php
 if (is_array($content)) {

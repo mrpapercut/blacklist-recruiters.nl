@@ -17,7 +17,7 @@ class Mail {
             'X-Mailer: PHP/'.phpversion()
         ));
 
-        // mail($to, $subject, $this->getReportTemplate($name, $report, $mailtoken), $headers);
+        mail($to, $subject, $this->getReportTemplate($name, $report, $mailtoken), $headers);
 
         return $mailtoken;
     }
